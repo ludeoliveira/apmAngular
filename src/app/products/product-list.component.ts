@@ -4,7 +4,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IProduct } from './product';
 
 @Component({
-  selector: 'pm-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
