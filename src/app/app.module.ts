@@ -1,3 +1,4 @@
+import { ProductsDetailGuard } from './products/products-detail.guard';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +29,11 @@ import { StarComponent } from './shared/star.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'products', component: ProductListComponent},
-      { path: 'products/:id', component: ProductsDetailComponent},
+      {
+        path: 'products/:id',
+        canActivate: [ProductsDetailGuard],
+        component: ProductsDetailComponent
+      },
       { path: 'welcome', component: WelcomeComponent},
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
